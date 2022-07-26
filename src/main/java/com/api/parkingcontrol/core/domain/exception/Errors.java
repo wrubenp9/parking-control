@@ -1,0 +1,6 @@
+package com.api.parkingcontrol.core.domain.exception;
+
+import lombok.*;
+
+@Builder
+public record Errors(String message) {}
