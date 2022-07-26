@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarRequest {
+  private String responsibleCpf;
   private String licensePlateCar;
   private String brandCar;
   private String modelCar;
   private String colorCar;
-  private UserRequest user;
 }
