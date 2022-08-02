@@ -4,10 +4,18 @@ import com.api.parkingcontrol.core.database.model.UserEntity;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 
   Optional<UserEntity> findByCpf(String cpf);
+  //  @Query("SELECT cpf  FROM user WHERE cpf = ?1")
+  @Query("SELECT CASE WHEN (COUNT(cpf)>0) THEN true ELSE false END FROM user WHERE cpf = ?1 ")
+  Boolean existCPF(String cpf);
+
+  //  @Query("SELECT email  FROM user WHERE email = ?1")
+  @Query("SELECT CASE WHEN (COUNT(email)>0) THEN true ELSE false END FROM user WHERE email = ?1 ")
+  Boolean existEmail(String email);
 }

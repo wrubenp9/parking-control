@@ -5,9 +5,7 @@ import com.api.parkingcontrol.core.database.repository.CarRepository;
 import com.api.parkingcontrol.core.database.repository.UserRepository;
 import com.api.parkingcontrol.core.domain.exception.ExceptionCodeEnum;
 import com.api.parkingcontrol.core.usecase.car.model.CarCreateRequest;
-
 import javax.transaction.Transactional;
-
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +36,11 @@ public class CarCreateUseCaseImpl implements CarCreateUseCase {
 
       carRepository.save(carEntity);
     } else {
-      ExceptionCodeEnum.VALUE_UNIQUE_DUPLICATE.throwException();
+      if (user.isEmpty()) {
+        ExceptionCodeEnum.CPF_INVALID.throwException();
+      } else {
+        ExceptionCodeEnum.CAR_REGISTERED.throwException();
+      }
     }
   }
 }
