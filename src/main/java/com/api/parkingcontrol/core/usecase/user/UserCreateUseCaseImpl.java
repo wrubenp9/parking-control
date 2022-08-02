@@ -15,10 +15,15 @@ public class UserCreateUseCaseImpl implements UserCreateUseCase {
 
   @Override
   public void execute(UserCreateRequest request) {
-    try {
-      userRepository.save(UserEntity.mapper(request));
-    } catch (Exception e) {
-      ExceptionCodeEnum.INTERNAL_SERVER_ERROR.throwException();
+
+    if (Boolean.TRUE.equals(userRepository.existCPF(request.getCpf()))) {
+      ExceptionCodeEnum.CPF_REGISTERED.throwException();
     }
+
+    if (Boolean.TRUE.equals(userRepository.existEmail(request.getEmail()))) {
+      ExceptionCodeEnum.EMAIL_REGISTERED.throwException();
+    }
+
+    userRepository.save(UserEntity.mapper(request));
   }
 }
