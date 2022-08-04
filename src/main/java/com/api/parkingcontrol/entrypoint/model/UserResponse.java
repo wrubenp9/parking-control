@@ -11,7 +11,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserResponse {
   private String name;
-  private String apartment;
-  private String block;
-  //  private CarResponse car;
+  private String email;
 }

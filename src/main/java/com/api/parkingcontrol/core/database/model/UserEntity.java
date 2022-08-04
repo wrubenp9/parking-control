@@ -36,21 +36,12 @@ public class UserEntity {
   @CPF
   private String cpf;
 
-  @Column(name = "apartment", nullable = false, length = 30)
-  private String apartment;
-
-  @Column(name = "block", nullable = false, length = 30)
-  private String block;
-
   @Column(nullable = false)
   @CreationTimestamp
   private LocalDateTime createdAt;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
   private List<CarEntity> car;
-
-  //  @OneToOne(cascade = CascadeType.ALL)
-  //  private CarEntity car;
 
   public static UserEntity mapper(Object object) {
     var result = UserEntity.builder().build();
