@@ -4,11 +4,11 @@ import com.api.parkingcontrol.core.domain.exception.ExceptionCodeEnum;
 import lombok.Getter;
 
 @Getter
-public class ExceptionCode extends RuntimeException {
+public class BusinessException extends RuntimeException {
 
   private final ExceptionCodeEnum exceptionCodeEnum;
 
-  public ExceptionCode(ExceptionCodeEnum exception) {
+  public BusinessException(ExceptionCodeEnum exception) {
     this.exceptionCodeEnum = exception;
   }
 }

@@ -18,8 +18,6 @@ public class User {
   private String name;
   private String email;
   private String cpf;
-  private String apartment;
-  private String block;
   private LocalDateTime createdAt;
 
   public static Car mapper(Object object) {
