@@ -8,9 +8,7 @@ import org.springframework.http.HttpStatus;
 public enum ExceptionCodeEnum {
   FIELD_NULL(1000, "Field data is null.", HttpStatus.INTERNAL_SERVER_ERROR),
   CPF_INVALID(10001, "CPF invalid.", HttpStatus.BAD_REQUEST),
-  EMAIL_INVALID(10002, "Email invalid.", HttpStatus.BAD_REQUEST),
   CPF_REGISTERED(10010, "CPF already registered.", HttpStatus.UNPROCESSABLE_ENTITY),
-  EMAIL_REGISTERED(10011, "Email already registered.", HttpStatus.UNPROCESSABLE_ENTITY),
   CAR_REGISTERED(10012, "car already registered.", HttpStatus.UNPROCESSABLE_ENTITY);
 
   private final int code;

@@ -16,7 +16,6 @@ import org.springframework.beans.BeanUtils;
 public class User {
   private UUID id;
   private String name;
-  private String email;
   private String cpf;
   private LocalDateTime createdAt;
 

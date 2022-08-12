@@ -14,8 +14,4 @@ public interface UserRepository extends JpaRepository<UserEntity, UUID> {
   //  @Query("SELECT cpf  FROM user WHERE cpf = ?1")
   @Query("SELECT CASE WHEN (COUNT(cpf)>0) THEN true ELSE false END FROM user WHERE cpf = ?1 ")
   Boolean existCPF(String cpf);
-
-  //  @Query("SELECT email  FROM user WHERE email = ?1")
-  @Query("SELECT CASE WHEN (COUNT(email)>0) THEN true ELSE false END FROM user WHERE email = ?1 ")
-  Boolean existEmail(String email);
 }

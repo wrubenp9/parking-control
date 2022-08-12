@@ -3,16 +3,14 @@ package com.api.parkingcontrol.core.database.model;
 import java.util.Set;
 import java.util.UUID;
 import javax.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.beans.BeanUtils;
 
 @Entity(name = "car")
 @Table(name = "tb_car")
-@Data
 @Builder
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarEntity {

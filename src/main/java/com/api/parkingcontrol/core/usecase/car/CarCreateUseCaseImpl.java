@@ -26,13 +26,13 @@ public class CarCreateUseCaseImpl implements CarCreateUseCase {
       var userEntity = user.get();
 
       var carEntity =
-        CarEntity.builder()
-          .licensePlateCar(request.getLicensePlateCar())
-          .brandCar(request.getBrandCar())
-          .colorCar(request.getColorCar())
-          .modelCar(request.getModelCar())
-          .user(userEntity)
-          .build();
+          CarEntity.builder()
+              .licensePlateCar(request.getLicensePlateCar())
+              .brandCar(request.getBrandCar())
+              .colorCar(request.getColorCar())
+              .modelCar(request.getModelCar())
+              .user(userEntity)
+              .build();
 
       carRepository.save(carEntity);
     } else {

@@ -10,13 +10,11 @@ import org.springframework.beans.BeanUtils;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserCreateResponse {
+public class UserResponse {
   private String name;
-  private String apartment;
-  private String block;
 
-  public static UserCreateResponse mapper(Object object) {
-    var result = UserCreateResponse.builder().build();
+  public static UserResponse mapper(Object object) {
+    var result = UserResponse.builder().build();
     BeanUtils.copyProperties(object, result);
     return result;
   }

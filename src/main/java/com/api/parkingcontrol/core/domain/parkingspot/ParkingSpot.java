@@ -1,8 +1,9 @@
 package com.api.parkingcontrol.core.domain.parkingspot;
 
+import com.api.parkingcontrol.core.domain.car.Car;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class ParkingSpot {
   private Boolean status;
   private LocalDateTime checkIn;
   private LocalDateTime checkOut;
+  private Set<Car> car;
 }

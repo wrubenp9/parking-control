@@ -13,7 +13,7 @@ public class ExceptionHandlerAdvice {
 
   @ExceptionHandler(BusinessException.class)
   public ResponseEntity<ExceptionResponse> businessException(
-    BusinessException e, HttpServletRequest request) {
+      BusinessException e, HttpServletRequest request) {
 
     var exception = e.getExceptionCodeEnum();
 
@@ -22,11 +22,11 @@ public class ExceptionHandlerAdvice {
     var statusCode = exception.getStatus().value();
 
     Set<Errors> errors =
-      Set.of(Errors.builder().code(exception.getCode()).message(exception.getMessage()).build());
+        Set.of(Errors.builder().code(exception.getCode()).message(exception.getMessage()).build());
 
     ExceptionResponse exceptionCode =
-      new ExceptionResponse(
-        LocalDateTime.now(), statusCode, statusMessage, request.getRequestURI(), errors);
+        new ExceptionResponse(
+            LocalDateTime.now(), statusCode, statusMessage, request.getRequestURI(), errors);
 
     return ResponseEntity.status(status).body(exceptionCode);
   }

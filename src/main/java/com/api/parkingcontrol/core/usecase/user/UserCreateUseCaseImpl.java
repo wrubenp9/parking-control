@@ -20,10 +20,6 @@ public class UserCreateUseCaseImpl implements UserCreateUseCase {
       ExceptionCodeEnum.CPF_REGISTERED.throwException();
     }
 
-    if (Boolean.TRUE.equals(userRepository.existEmail(request.getEmail()))) {
-      ExceptionCodeEnum.EMAIL_REGISTERED.throwException();
-    }
-
     userRepository.save(UserEntity.mapper(request));
   }
 }
