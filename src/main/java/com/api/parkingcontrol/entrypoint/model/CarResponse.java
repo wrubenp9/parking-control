@@ -10,9 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CarResponse {
-  private String licensePlateCar;
-  private String brandCar;
-  private String modelCar;
-  private String colorCar;
+  private String licensePlate;
+  private String brand;
+  private String model;
+  private String color;
   private UserResponse user;
 }

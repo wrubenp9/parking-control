@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class ParkingSpotRequest {
   @NotBlank private String parkingSpotNumber;
-  @NotBlank private String licensePlateCar;
+  @NotBlank private String licensePlate;
 }

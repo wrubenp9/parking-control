@@ -14,5 +14,4 @@ public class ParkingSpotResponse {
   private String parkingSpotNumber;
   private Boolean status;
   private LocalDateTime checkIn;
-  private LocalDateTime checkOut;
 }

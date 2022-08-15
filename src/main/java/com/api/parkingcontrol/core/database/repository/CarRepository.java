@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CarRepository extends JpaRepository<CarEntity, UUID> {
-  Optional<CarEntity> findByLicensePlateCar(String licensePlateCar);
+  Optional<CarEntity> findByLicensePlate(String licensePlate);
 }

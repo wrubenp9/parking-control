@@ -4,7 +4,6 @@ import java.util.Set;
 import java.util.UUID;
 import javax.persistence.*;
 import lombok.*;
-import org.springframework.beans.BeanUtils;
 
 @Entity(name = "car")
 @Table(name = "tb_car")
@@ -19,16 +18,16 @@ public class CarEntity {
   private UUID id;
 
   @Column(nullable = false, unique = true, length = 7)
-  private String licensePlateCar;
+  private String licensePlate;
 
   @Column(nullable = false, length = 70)
-  private String brandCar;
+  private String brand;
 
   @Column(nullable = false, length = 70)
-  private String modelCar;
+  private String model;
 
   @Column(nullable = false, length = 70)
-  private String colorCar;
+  private String color;
 
   @ManyToOne
   @JoinColumn(nullable = false)
@@ -37,9 +36,9 @@ public class CarEntity {
   @ManyToMany(mappedBy = "car")
   private Set<ParkingSpotEntity> parkingSpot;
 
-  public static CarEntity mapper(Object object) {
-    var result = CarEntity.builder().build();
-    BeanUtils.copyProperties(object, result);
-    return result;
-  }
+//  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//  @JoinTable(
+//      joinColumns = {@JoinColumn(name = "car_id")},
+//      inverseJoinColumns = {@JoinColumn(name = "parking_spot_id")})
+//  private Set<ParkingSpotEntity> parkingSpot;
 }

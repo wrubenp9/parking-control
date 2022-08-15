@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.UUID;
 import javax.persistence.*;
 import lombok.*;
-import org.springframework.beans.BeanUtils;
 
 @Entity(name = "parking_spot")
 @Table(name = "tb_parking_spot")
@@ -22,24 +21,21 @@ public class ParkingSpotEntity {
   @Column(name = "parking_spot_number", nullable = false, unique = true, length = 10)
   private String parkingSpotNumber;
 
-  @Column(name = "status", nullable = false)
+  @Column(name = "status")
   private Boolean status;
 
-  @Column(name = "check_in", nullable = false)
+  @Column(name = "check_in")
   private LocalDateTime checkIn;
 
   @Column(name = "check_out")
   private LocalDateTime checkOut;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   @JoinTable(
-      joinColumns = {@JoinColumn(name = "parking_spot_id")},
-      inverseJoinColumns = {@JoinColumn(name = "car_id")})
+    joinColumns = {@JoinColumn(name = "parking_spot_id")},
+    inverseJoinColumns = {@JoinColumn(name = "car_id")})
   private Set<CarEntity> car;
 
-  public static ParkingSpotEntity mapper(Object object) {
-    var result = ParkingSpotEntity.builder().build();
-    BeanUtils.copyProperties(object, result);
-    return result;
-  }
+//  @ManyToMany(mappedBy = "parkingSpot")
+//  private Set<CarEntity> car;
 }

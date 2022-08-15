@@ -1,8 +1,8 @@
 package com.api.parkingcontrol.core.usecase.user;
 
-import com.api.parkingcontrol.core.database.model.UserEntity;
 import com.api.parkingcontrol.core.database.repository.UserRepository;
 import com.api.parkingcontrol.core.domain.exception.ExceptionCodeEnum;
+import com.api.parkingcontrol.core.domain.mapper.UserMapper;
 import com.api.parkingcontrol.core.usecase.user.model.UserCreateRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,6 @@ public class UserCreateUseCaseImpl implements UserCreateUseCase {
       ExceptionCodeEnum.CPF_REGISTERED.throwException();
     }
 
-    userRepository.save(UserEntity.mapper(request));
+    userRepository.save(UserMapper.INSTANCE.mapper(request));
   }
 }

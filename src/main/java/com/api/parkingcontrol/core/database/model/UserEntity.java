@@ -6,7 +6,6 @@ import javax.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.beans.BeanUtils;
 
 @Entity(name = "user")
 @Table(name = "tb_user")
@@ -31,10 +30,4 @@ public class UserEntity {
   @Column(nullable = false)
   @CreationTimestamp
   private LocalDateTime createdAt;
-
-  public static UserEntity mapper(Object object) {
-    var result = UserEntity.builder().build();
-    BeanUtils.copyProperties(object, result);
-    return result;
-  }
 }

@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CarRequest {
   private String responsibleCpf;
-  private String licensePlateCar;
-  private String brandCar;
-  private String modelCar;
-  private String colorCar;
+  private String licensePlate;
+  private String brand;
+  private String model;
+  private String color;
 }
