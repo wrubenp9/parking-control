@@ -24,7 +24,7 @@ public class ParkingSpotCreateUseCaseImpl implements ParkingSpotCreateUseCase {
   @Transactional
   public void execute(String parkingSpotNumber, String licensePlate) {
 
-      ParkingSpot parkingSpot =26
+      ParkingSpot parkingSpot =
         ParkingSpot.builder()
           .parkingSpotNumber(parkingSpotNumber)
           .build();
